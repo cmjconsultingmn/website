@@ -11,26 +11,6 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        .idea-card {
-            transform-style: preserve-3d;
-            transition: transform 0.5s;
-        }
-        .idea-card:hover {
-            transform: translateY(-10px);
-        }
-        .loader {
-            border-top-color: #3498db;
-            -webkit-animation: spin 1s linear infinite;
-            animation: spin 1s linear infinite;
-        }
-        @-webkit-keyframes spin {
-            0% { -webkit-transform: rotate(0deg); }
-            100% { -webkit-transform: rotate(360deg); }
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -41,7 +21,6 @@
             <a href="#" class="text-2xl font-bold text-gray-900">AI Horizon Consulting</a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#services" class="text-gray-600 hover:text-blue-600 transition-colors">Services</a>
-                <a href="#ai-generator" class="text-gray-600 hover:text-blue-600 transition-colors">AI Ideas</a>
                 <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors">About</a>
                 <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
             </div>
@@ -53,7 +32,6 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
             <a href="#services" class="block py-2 text-gray-600 hover:text-blue-600">Services</a>
-            <a href="#ai-generator" class="block py-2 text-gray-600 hover:text-blue-600">AI Ideas</a>
             <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600">About</a>
             <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
             <a href="#contact" class="mt-2 block w-full text-center bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-all">Get Started</a>
@@ -123,36 +101,6 @@
             </div>
         </section>
 
-        <!-- AI Idea Generator Section -->
-        <section id="ai-generator" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">✨ AI Idea Generator</h2>
-                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Not sure where to start? Describe a challenge your organization faces, and get instant, AI-powered ideas for how to solve it.</p>
-                </div>
-                <div class="max-w-3xl mx-auto">
-                    <div class="bg-white p-8 rounded-xl shadow-lg">
-                        <div class="mb-4">
-                            <label for="challenge-input" class="block text-gray-700 font-semibold mb-2">Describe your challenge or goal:</label>
-                            <textarea id="challenge-input" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., 'Our teachers spend too much time grading papers,' or 'We struggle to respond to customer inquiries after hours.'"></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button id="generate-ideas-btn" class="bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-all shadow-md w-full md:w-auto flex items-center justify-center gap-2">
-                                <i data-lucide="sparkles" class="w-5 h-5"></i>
-                                Generate Ideas
-                            </button>
-                        </div>
-                    </div>
-                    <div id="loader" class="hidden my-8 text-center">
-                        <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-24 w-24 mx-auto"></div>
-                        <p class="mt-4 text-gray-600">Generating AI-powered ideas...</p>
-                    </div>
-                    <div id="ideas-output" class="mt-8 grid grid-cols-1 gap-6"></div>
-                    <div id="error-message" class="hidden mt-6 text-center bg-red-100 text-red-800 p-4 rounded-lg"></div>
-                </div>
-            </div>
-        </section>
-
         <!-- About Section -->
         <section id="about" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
@@ -161,7 +109,7 @@
                 </div>
                 <div class="md:w-2/3">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Your Partner in AI Adoption</h2>
-                    <p class="mt-4 text-lg text-gray-600">Hi, I'm [Your Name]. With a background in both technology and education, I'veseen firsthand how transformative new technologies can be when implemented thoughtfully. My passion is to demystify artificial intelligence and make its benefits accessible to everyone, from local shops to district schools.</p>
+                    <p class="mt-4 text-lg text-gray-600">Hi, I'm Cory. With a background in both technology and education, I'veseen firsthand how transformative new technologies can be when implemented thoughtfully. My passion is to demystify artificial intelligence and make its benefits accessible to everyone, from local shops to district schools.</p>
                     <p class="mt-4 text-gray-600">I believe in a practical, hands-on approach. I'm not here to sell you a one-size-fits-all solution. Instead, I work with you to understand your unique challenges and opportunities, developing a clear, actionable roadmap for integrating AI in a way that delivers real value.</p>
                 </div>
             </div>
@@ -175,7 +123,7 @@
                     <p class="mt-4 text-lg text-gray-600">Ready to explore how AI can benefit your organization? Reach out today.</p>
                 </div>
                 <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-                    <!-- UPDATED FORM FOR NETLIFY -->
+                    <!-- FORM FOR NETLIFY -->
                     <form name="contact" method="POST" data-netlify="true">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
@@ -212,169 +160,16 @@
         </div>
     </footer>
 
-    <script type="module">
-        // Firebase Imports (used for AI Idea Generator)
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-
-        // --- Firebase Configuration ---
-        const firebaseConfig = typeof __firebase_config !== 'undefined' 
-            ? JSON.parse(__firebase_config)
-            : { apiKey: "YOUR_API_KEY", authDomain: "YOUR_AUTH_DOMAIN", projectId: "YOUR_PROJECT_ID", storageBucket: "YOUR_STORAGE_BUCKET", messagingSenderId: "YOUR_MESSAGING_SENDER_ID", appId: "YOUR_APP_ID" };
-        
-        // --- Initialize Firebase ---
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        // --- Firebase Authentication ---
-        // Required for making authenticated calls to Google Cloud APIs like Gemini
-        onAuthStateChanged(auth, user => {
-            if (user) { console.log("User is signed in:", user.uid); } 
-            else { signInAnonymously(auth).catch(error => console.error("Anonymous sign-in failed:", error)); }
-        });
-
+    <script>
         // --- UI Elements ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const generateIdeasBtn = document.getElementById('generate-ideas-btn');
-        const challengeInput = document.getElementById('challenge-input');
-        const ideasOutput = document.getElementById('ideas-output');
-        const loader = document.getElementById('loader');
-        const errorMessage = document.getElementById('error-message');
 
         // --- Lucide Icons ---
         lucide.createIcons();
 
         // --- Mobile Menu Toggle ---
         mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-        // --- Gemini API Idea Generation ---
-        generateIdeasBtn.addEventListener('click', async () => {
-            const challenge = challengeInput.value.trim();
-            if (!challenge) {
-                errorMessage.textContent = 'Please describe your challenge or goal first.';
-                errorMessage.classList.remove('hidden');
-                return;
-            }
-
-            // Reset UI
-            errorMessage.classList.add('hidden');
-            ideasOutput.innerHTML = '';
-            loader.classList.remove('hidden');
-            generateIdeasBtn.disabled = true;
-            generateIdeasBtn.classList.add('opacity-50', 'cursor-not-allowed');
-
-            const prompt = `As an AI strategy consultant, brainstorm 3 creative and practical ways an organization can use AI to solve the following challenge. The organization could be a small business or a public school. For each idea, provide a short, compelling title, a one-sentence description of the solution, and a one-sentence explanation of the primary benefit.
-
-Challenge: "${challenge}"`;
-
-            try {
-                const generatedIdeas = await callGemini(prompt);
-                displayIdeas(generatedIdeas.ideas);
-            } catch (error) {
-                console.error('Error generating ideas:', error);
-                // UPDATED: Display a more specific error message for debugging
-                errorMessage.textContent = `An error occurred: ${error.message}. Please try again, or check the browser console for details.`;
-                errorMessage.classList.remove('hidden');
-            } finally {
-                loader.classList.add('hidden');
-                generateIdeasBtn.disabled = false;
-                generateIdeasBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-            }
-        });
-
-        async function callGemini(prompt, retries = 3, delay = 1000) {
-            const apiKey = ""; // API key is handled by the environment
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
-            const payload = {
-                contents: [{ role: "user", parts: [{ text: prompt }] }],
-                generationConfig: {
-                    responseMimeType: "application/json",
-                    responseSchema: {
-                        type: "OBJECT",
-                        properties: {
-                            ideas: {
-                                type: "ARRAY",
-                                items: {
-                                    type: "OBJECT",
-                                    properties: {
-                                        title: { type: "STRING" },
-                                        description: { type: "STRING" },
-                                        benefit: { type: "STRING" }
-                                    },
-                                    required: ["title", "description", "benefit"]
-                                }
-                            }
-                        }
-                    }
-                }
-            };
-
-            for (let i = 0; i < retries; i++) {
-                try {
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`The request to the AI model failed with status: ${response.status}`);
-                    }
-
-                    const result = await response.json();
-                    
-                    // UPDATED: Safer response parsing
-                    const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
-                    if (text) {
-                        return JSON.parse(text);
-                    } else {
-                        // Handle cases where the API returns a success status but no content (e.g., safety blocks)
-                        const blockReason = result?.candidates?.[0]?.finishReason;
-                        if (blockReason === 'SAFETY') {
-                             throw new Error('The request was blocked for safety reasons. Please try a different prompt.');
-                        }
-                        throw new Error('The AI model returned an empty or invalid response.');
-                    }
-                } catch (error) {
-                    console.warn(`Attempt ${i + 1} of ${retries} failed. Retrying in ${delay}ms...`);
-                    if (i === retries - 1) throw error; // Throw the last error after all retries
-                    await new Promise(res => setTimeout(res, delay));
-                    delay *= 2; // Exponential backoff
-                }
-            }
-        }
-
-        function displayIdeas(ideas) {
-            ideasOutput.innerHTML = ''; // Clear previous results
-            if (!ideas || ideas.length === 0) {
-                ideasOutput.innerHTML = `<p class="text-center text-gray-500">No ideas were generated. Try rephrasing your challenge.</p>`;
-                return;
-            }
-
-            ideas.forEach(idea => {
-                const card = document.createElement('div');
-                card.className = 'bg-white p-6 rounded-xl shadow-lg border border-gray-200 idea-card';
-                card.innerHTML = `
-                    <div class="flex items-start gap-4">
-                        <div class="bg-blue-100 p-3 rounded-full">
-                            <i data-lucide="lightbulb" class="w-6 h-6 text-blue-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-900">${idea.title}</h4>
-                            <p class="mt-2 text-gray-600">${idea.description}</p>
-                            <p class="mt-3 text-sm font-medium text-green-700 bg-green-100 px-3 py-1 rounded-full inline-block">
-                                Benefit: ${idea.benefit}
-                            </p>
-                        </div>
-                    </div>
-                `;
-                ideasOutput.appendChild(card);
-            });
-            lucide.createIcons(); // Re-render icons for the new elements
-        }
-
     </script>
 </body>
 </html>
